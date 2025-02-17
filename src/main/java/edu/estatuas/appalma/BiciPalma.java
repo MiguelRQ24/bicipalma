@@ -1,13 +1,12 @@
 package edu.estatuas.appalma;
 
-/**
- * Hello world!
- *
- */
+import edu.estatuas.domain.estacion.Estacion;
+
+
 public class BiciPalma
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+    public static void main( String[] args ) {
+        Estacion estacion = new Estacion(1, "Manacor", 6);
+
     }
 }
