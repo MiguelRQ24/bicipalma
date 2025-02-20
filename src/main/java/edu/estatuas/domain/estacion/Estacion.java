@@ -1,5 +1,7 @@
 package edu.estatuas.domain.estacion;
 
+import edu.estatuas.domain.bicicleta.Movil;
+
 public class Estacion {
 
     private final int idEstacion;
@@ -53,4 +55,18 @@ public class Estacion {
             ++ numeroAnclaje;
         }
     }
+
+
+    public void anclarBicicleta(Movil bicicleta){
+        int posicion = 0;
+        for (Anclaje anclaje: anclajes.anclajes()){
+            if (!anclaje.estaOcupado()){
+                anclajes.ocuparAnclajes(posicion, bicicleta);
+                break;
+            }
+            ++ posicion;
+        }
+    }
 }
+
+
