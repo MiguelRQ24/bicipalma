@@ -2,6 +2,8 @@ package edu.estatuas.domain.estacion;
 
 import edu.estatuas.domain.bicicleta.Movil;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Anclajes {
     private Anclaje[] anclajes;
     Anclajes(int cantidad_anclajes){
@@ -24,5 +26,22 @@ public class Anclajes {
 
     void ocuparAnclajes(int posicion, Movil bicicleta){
         this.anclajes[posicion].anclarBicicleta(bicicleta);
+    }
+    int seleccionarAnclaje(){
+        Integer idAnclaje = ThreadLocalRandom.current().nextInt(0, numAnclajes());
+        return idAnclaje;
+        }
+
+    Movil getBiciAt(int posicion){
+        return this.anclajes[posicion].getIdBicicleta();
+
+    }
+
+    boolean isAnclajeOcupado(int posicion){
+        return this.anclajes[posicion].estaOcupado();
+    }
+
+    void liberarAnclaje(int posicion) {
+        this.anclajes[posicion].liberarBici();
     }
 }

@@ -12,7 +12,21 @@ public class Anclaje {
     }
 
     void anclarBicicleta(Movil bicicleta){
+        boolean esBicicletaExistente;
+        if (bicicleta == null){
+            esBicicletaExistente = false;
+        }
+        else{
+            esBicicletaExistente = true;
+        }
         this.idBicicleta = bicicleta;
-        this.estarOcupado = true;
+        this.estarOcupado = esBicicletaExistente;
+    }
+    void liberarBici(){
+        this.idBicicleta = null;
+        this.estarOcupado = false;
+    }
+    Movil getIdBicicleta(){
+        return this.idBicicleta;
     }
 }
