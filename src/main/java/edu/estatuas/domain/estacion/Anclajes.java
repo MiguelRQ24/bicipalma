@@ -11,4 +11,13 @@ public class Anclajes {
             this.anclajes[i] = new Anclaje();
         }
     }
+
+    int numAnclajes(){
+        return this.anclajes.length;
+    }
+
+    Anclaje[] anclajes() {
+        return this.anclajes;
+    }
+
 }

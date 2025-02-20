@@ -1,7 +1,11 @@
 package edu.estatuas.domain.estacion;
 
 public class Anclaje {
-    private boolean esta_ocupado;
-    private int id_bicicleta;
+    private boolean estarOcupado;
+    private int idBicicleta;
     Anclaje(){}
+
+    boolean estaOcupado(){
+        return this.estarOcupado;
+    }
 }

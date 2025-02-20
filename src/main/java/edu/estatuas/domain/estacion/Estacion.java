@@ -1,12 +1,56 @@
 package edu.estatuas.domain.estacion;
 
 public class Estacion {
-    private final int id_estacion;
-    private final String nombre_estacion;
+
+    private final int idEstacion;
+    private final String direccion;
     private final Anclajes anclajes;
-    public Estacion(int id_estacion, String nombre_estacion, int cantidad_anclajes){
-        this.id_estacion = id_estacion;
-        this.nombre_estacion = nombre_estacion;
-        this.anclajes = new Anclajes(cantidad_anclajes);
+
+    public Estacion(int idEstacion, String direccion, int cantidadAnclajes){
+        this.idEstacion = idEstacion;
+        this.direccion = direccion;
+        this.anclajes = new Anclajes(cantidadAnclajes);
+    }
+    public void consultarEstacion(){
+        System.out.println(this);
+    }
+    @Override
+    public String toString() {
+        return 	"ID Esstación: " + getId() + '\n' +
+                "Dirección: " + getDireccion() + '\n' +
+                "Número de Anclajes: " + numAnclajes();
+    }
+
+    private int getId(){
+        return this.idEstacion;
+    }
+
+    private String getDireccion(){
+        return  this.direccion;
+    }
+
+    private int numAnclajes(){
+        return  anclajes.numAnclajes();
+    }
+
+
+
+    public int anclajesLibres(){
+        int numAnclajesLibre = 0;
+        for (Anclaje anclaje: anclajes.anclajes()){
+            if (!anclaje.estaOcupado()){
+                ++ numAnclajesLibre;
+            }
+        }
+        return numAnclajesLibre;
+    }
+
+
+    public void consultarAnclajes(){
+        int numeroAnclaje = 1;
+        for (Anclaje anclaje: anclajes.anclajes()){
+            System.out.println("Anclaje" + numeroAnclaje + ": " + anclaje.estaOcupado());
+            ++ numeroAnclaje;
+        }
     }
 }
